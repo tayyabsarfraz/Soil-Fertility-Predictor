@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Soil Fertility Predictor 🌾</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url("/static/pic.jpg") no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding-top: 100px;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 30px;
+            border-radius: 15px;
+            display: inline-block;
+        }
+        input[type=number] {
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            border: none;
+            width: 150px;
+        }
+        button {
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            background-color: #28a745;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        h2 {
+            margin-top: 20px;
+            color: #ffd700;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌱 Soil Fertility Predictor</h1>
+        <form action="/predict" method="post">
+            <input type="number" name="nitrogen" placeholder="Nitrogen (N)" step="0.01" required><br>
+            <input type="number" name="phosphorous" placeholder="Phosphorous (P)" step="0.01" required><br>
+            <input type="number" name="potassium" placeholder="Potassium (K)" step="0.01" required><br>
+            <button type="submit">Predict Fertility</button>
+        </form>
+
+        {% if prediction %}
+        <h2>✅ Predicted Fertility: {{ prediction }}</h2>
+        {% endif %}
+    </div>
+</body>
+</html>
